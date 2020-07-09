@@ -5,11 +5,14 @@ month = {"Jan": 0, "Feb": 31, "Mar": 59, "Apr": 90,
 "May": 120, "Jun": 151, "Jul": 181, "Aug": 212,
 "Sep": 243, "Oct": 273, "Nov": 304, "Dec": 334}
 
-def convertInDays(dates):
+## Convert the date in 365 days for easly comparing  
+def convertInDays(dates): 
     dates = dates.split(" ")
     monthVal = month[dates[1].strip().title()]
     datesVal = monthVal+int(dates[0])
     return datesVal
+## Function for findig the maximum disjoint intervals 
+## Greedy approaches has been used to solve the problem
 
 @api_view(['POST','GET'])
 def getMaxMovie(request):

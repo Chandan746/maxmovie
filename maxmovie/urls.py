@@ -4,5 +4,5 @@ from django.urls import path
 from .views import getMaxMovie
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',getMaxMovie),
+    path('getMaxMovie',getMaxMovie),
 ]
