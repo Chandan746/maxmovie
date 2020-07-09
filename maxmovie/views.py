@@ -34,42 +34,19 @@ def getMaxMovie(request):
         movie_json={"movie_list":{}}
         for i in final_list:
             movie_json["movie_list"][str(i[0])] = movie_list[str(i[0])]
+    elif request.method == 'GET':
+        movie_json = {"movie_list":
+                    {
+                "1":{
+                    "movie":"*Name of movie*",
+                    "start_date":"*date Month(Jan, Feb, etc*)",
+                    "end_date":"*date Month(Jan, Feb, etc*)"
+                    },
+                "2":{
+                    "movie":"Rock",
+                    "start_date":"20 Jan",
+                    "end_date":"30 Jan"
+                    }
+                }
+            }
     return Response(movie_json)
-
-
-"""
-{
-   "movie_list":{
-      "1":{
-         "movie":"Bala",
-         "start_date":"8 Jan",
-         "end_date":"28 Jan"
-      },
-      "2":{
-         "movie":"Rock",
-         "start_date":"20 Jan",
-         "end_date":"30 Jan"
-      },
-      "3":{
-         "movie":"PolicyMaker",
-         "start_date":"29 Jan",
-         "end_date":"16 Feb"
-      },
-      "4":{
-         "movie":"Brave",
-         "start_date":"02 Feb",
-         "end_date":"14 Feb"
-      },
-      "5":{
-         "movie":"Drive",
-         "start_date":"10 Feb",
-         "end_date":"18 Feb"
-      },
-      "6":{
-         "movie":"Race",
-         "start_date":"15 Feb",
-         "end_date":"28 Feb"
-      }
-   }
-}
-"""
