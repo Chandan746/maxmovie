@@ -27,8 +27,8 @@ def getMaxMovie(request):
         leapyear = False 
         movieInNum = []
         final_list=[]
-        for key,val in movie_list.items():
-            movieid =  int(key)  
+        for Unique_key,val in movie_list.items():
+            movieid =  Unique_key  
             movie_start_date = convertInDays(val["start_date"],leapyear)
             if movie_start_date[1]:
                 leapyear = True
@@ -48,11 +48,11 @@ def getMaxMovie(request):
                 last_work_day=next_last_day
         movie_json={"movie_list":{}}
         for i in final_list:
-            movie_json["movie_list"][str(i[0])] = movie_list[str(i[0])]
+            movie_json["movie_list"][i[0]] = movie_list[i[0]]
     elif request.method == 'GET':
         movie_json = {"movie_list":
                     {
-                "1":{
+                "Unique_id":{
                     "movie":"*Name of movie*",
                     "start_date":"*date Month(Jan, Feb, etc*)",
                     "end_date":"*date Month(Jan, Feb, etc*)"
